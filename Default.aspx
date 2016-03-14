@@ -13,6 +13,7 @@
 
 
     </div>
+        Username: <asp:TextBox ID="username" ValidationGroup="AllValidators" runat="server"></asp:TextBox>
     </form>
 </body>
 </html>
