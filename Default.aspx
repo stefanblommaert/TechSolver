@@ -13,7 +13,21 @@
 
 
     </div>
-        Username: <asp:TextBox ID="username" ValidationGroup="AllValidators" runat="server"></asp:TextBox>
+        <div id="login">
+            <div>
+                Username: <asp:TextBox ID="username" ValidationGroup="AllValidators" runat="server"></asp:TextBox>
+            </div>
+            
+            <div>
+                Password: <asp:TextBox ID="password" ValidationGroup="Allvalidators" runat="server"></asp:TextBox>
+                <br />
+                <asp:Button ID="Submit"  runat="server" Text="Submit" OnClick="Submit_Click" />
+            </div>
+                
+            <div>
+
+            </div>
+        </div>
     </form>
 </body>
 </html>
