@@ -1,8 +1,8 @@
 <?php
 
-define('DB_HOST', '');
-define('DB_NAME', '');
-define('DB_USER','');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'test');
+define('DB_USER','root');
 define('DB_PASSWORD','');
 
 $con=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " .     mysql_error());
@@ -21,4 +21,4 @@ echo "YOUR REGISTRATION IS COMPLETED...";
 else
 {
 echo "Unknown Error!"
-}
+;}
