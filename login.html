@@ -142,7 +142,7 @@
         
 	<!-- Login form -->
 	<div class="login">
-		<form name="login" id="loginForm" novalidate>
+		<form method="post" >
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Username:</label>
@@ -153,7 +153,7 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Password:</label>
-                            <input type="password" class="form-control" id="password" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                            <input type="password" class="form-control" id="password" required data-validation-required-message="Please enter your password."></>
                         </div>
                     </div>
                     <div id="success"></div>
