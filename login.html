@@ -142,24 +142,14 @@
         
 	<!-- Login form -->
 	<div class="login">
-		<form method="post" >
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label>Username:</label>
-                            <input type="text" class="form-control" id="username" required data-validation-required-message="Please enter your username.">
-                            <p class="help-block"></p>
-                        </div>
-                    </div>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label>Password:</label>
-                            <input type="password" class="form-control" id="password" required data-validation-required-message="Please enter your password."></>
-                        </div>
-                    </div>
-                    <div id="success"></div>
-                    <!-- For success/fail messages -->
-                    <button type="submit" class="btn btn-primary">Login</button>
-                    <button type="submit" class="btn btn-fb">Login with FaceBook</button>
-                </form>
+		<div class="textbox">
+			<form method="post" action="login.php">                  
+            	<p><input type="text" name="username" value="" placeholder="Username"></p>
+            	<p><input type="password" name="password" value="" placeholder="Password"></p>
+		</div>
+		<div class="button">
+            <p class="submit"><input type="submit" name="login" value="Login" class="btn btn-primary"></p>
+        </div>
+        </form>
 	</div>
 	
