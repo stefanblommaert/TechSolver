@@ -17,6 +17,8 @@ $data = mysql_query ($query)or die(mysql_error());
 if($data)
 {
 echo "YOUR REGISTRATION IS COMPLETED...";
+header('location: login.html');
+exit();
 }
 else
 {
