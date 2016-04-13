@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $host="localhost"; // Host name 
 $username="root"; // Mysql username 
@@ -25,13 +26,17 @@ $result=mysql_query($sql);
 // Mysql_num_row is counting table row
 $count=mysql_num_rows($result);
 
-echo $username;
 // If result matched $username and $password, table row must be 1 row
 if($count==1){
-    session_start();
+    
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;
 	
 	header('location: index.html');
+	exit();
+}
+else {
+	$_SESSION['loggedin'] = false;
+	header('location: login.html');
 	exit();
 }

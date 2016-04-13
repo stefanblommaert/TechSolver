@@ -80,8 +80,10 @@
                             <li><a href="pricing.html">Pricing Table</a></li>
                         </ul>
                     </li>
+
                     <li><a href="login.html">Login</a></li>
                     <li><a href="register.html">Register</a></li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -140,6 +142,7 @@
 session_start();
 // Echo session variables that were set on previous page
 print_r($_SESSION);
+echo $_SESSION["username"];
 
 ?>
                 </h1>
