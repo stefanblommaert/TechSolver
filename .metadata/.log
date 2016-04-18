@@ -386,3 +386,9 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86 -keyring /Users/Stefan/.
 
 !ENTRY org.eclipse.core.net 1 0 2016-04-18 14:34:15.285
 !MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.core.jobs 2 2 2016-04-18 15:24:06.728
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.aptana.usage.internal.DefaultAnalyticsEventHandler$1
+
+!ENTRY org.eclipse.core.jobs 2 2 2016-04-18 15:24:06.732
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.aptana.usage.internal.DefaultAnalyticsEventHandler$1
