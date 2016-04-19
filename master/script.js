@@ -27,15 +27,13 @@ app.config(function($routeProvider){
                 templateUrl: 'other.html'
           })
           .when('/login',{
-<<<<<<< Updated upstream
                 templateUrl: 'login.html'
           })
           .when('/register',{
           		templateUrl: 'register.html'
-=======
-          		templateUrl: 'login.html'
+
+          		//templateUrl: 'login.html'
           		
->>>>>>> Stashed changes
           });
 
 			
