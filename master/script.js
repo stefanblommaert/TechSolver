@@ -11,8 +11,26 @@ app.config(function($routeProvider){
           .when('/about',{
                 templateUrl: 'about.html'
           })
+          .when('/services',{
+                templateUrl: 'services.html'
+          })
+          .when('/contact',{
+                templateUrl: 'contact.html'
+          })
+          .when('/portfolio',{
+                templateUrl: 'portfolio.html'
+          })
+          .when('/blog',{
+                templateUrl: 'blog.html'
+          })
+          .when('/other',{
+                templateUrl: 'other.html'
+          })
           .when('/login',{
-          		templateUrl: 'login.html'
+                templateUrl: 'login.html'
+          })
+          .when('/register',{
+          		templateUrl: 'register.html'
           });
 
 
