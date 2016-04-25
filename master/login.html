@@ -2,6 +2,9 @@
 
 <h1>Login</h1>
  <p>
+ 	<div>
+ 		<p><label>Welcome, {{response.name}}</label> </p>
+ 	</div>
    <!-- Login form -->
 	<div class="login">
 		<div class="textbox">
@@ -12,8 +15,10 @@
 		<div class="button">
             <p class="submit"><input type="submit" name="login" value="Login" class="btn btn-primary"></p>
             <p class="submit"><input type="submit" name="submit" value="Sign-Up" class="btn btn-primary"></p>
-            <button ng-click="FBLogin()">FaceBook Login</button>
+            <button ng-click="FBLogin()" type="button">FaceBook Login</button>
+        	    
         </div>
+        
         </form>
 	</div>
 

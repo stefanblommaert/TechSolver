@@ -15,25 +15,28 @@
 
 </head>
 <body ng-app="single-page-app">
+	
   <div ng-controller="cfgController">
-  <div>
-  <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
-         <ul class="nav navbar-nav">
-        <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="#/about">About us</a></li>
-        <li><a href="#/services">Services</a></li>		
-        <li><a href="#/contact">Contact</a></li>		
-        <li><a href="#/portfolio">Portfolio</a></li>
-        <li><a href="#/blog">Blog</a></li>		
-        <li><a href="#/other">Other Pages</a></li>
-        <li><a href="#/login">Login</a></li>
-		<li><a href="#/register">Register</a></li>
-      </ul>
-</nav>
-</div>
-  <br/>
+	  <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
+	         <ul class="nav navbar-nav">
+	        <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
+	        <li><a href="#/about">About us</a></li>
+	        <li><a href="#/services">Services</a></li>		
+	        <li><a href="#/contact">Contact</a></li>		
+	        <li><a href="#/portfolio">Portfolio</a></li>
+	        <li><a href="#/blog">Blog</a></li>		
+	        <li><a href="#/other">Other Pages</a></li>
+	        <li><a href="#/login">Login</a></li>
+			<li><a href="#/register">Register</a></li>	
+			<li><a>{{response.name}}</a></li>
+	      </ul>
+	      
+	</nav>
+	<br/>
  
-  <div ng-view class="jumbotron"></div>
+  	<div ng-view class="jumbotron"></div>
+  	</div>
   </div>
+
 </body>
 </html>
