@@ -23,8 +23,8 @@ app.config(function($routeProvider){
           .when('/blog',{
                 templateUrl: 'blog.html'
           })
-          .when('/other',{
-                templateUrl: 'other.html'
+          .when('/chat',{
+                templateUrl: 'chat/chat1.html'
           })
           .when('/login',{
                 templateUrl: 'login.html',
