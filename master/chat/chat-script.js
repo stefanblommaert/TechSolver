@@ -18,7 +18,7 @@
         $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
         $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
       }
-      //mapster gedeelte
+      /*mapster gedeelte
       (function(window, google, mapster) {
 
         //map options
@@ -34,4 +34,4 @@
         //map
         var map = mapster.create(element, options);
         alert(map.gMap.getZoom());
-      }(window, google, window.Mapster));
+      }(window, google, window.mapster));*/
