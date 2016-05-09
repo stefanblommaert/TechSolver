@@ -1,15 +1,36 @@
 var app=angular.module('single-page-app',['ngRoute']);
 
+var accessChat = undefined;
+
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1526991634270394',
+      xfbml      : true,
+      version    : 'v2.5',
+      status	 : true
+    });
+};
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1526991634270394";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+   
 
 app.config(function($routeProvider){
 
       $routeProvider
           .when('/',{
                 templateUrl: 'home.html'
+                
+                
           })
           .when('/about',{
-                templateUrl: 'about.html',
-                needAuth: true               
+                templateUrl: 'about.html'
+                               
           })
           .when('/services',{
                 templateUrl: 'services.html'
@@ -24,44 +45,56 @@ app.config(function($routeProvider){
                 templateUrl: 'blog.html'
           })
           .when('/chat',{
-                templateUrl: 'chat/chat1.html'
+          	
+          		templateUrl: 'chat/chat1.html',
+          		controller: 'chatController',
+          		resolve: {
+      				accessChat: ['$q', function($q) {
+        			return accessChat ? accessChat : $q.reject('ok');
+      				}]
+    			}
+                
           })
           .when('/login',{
-                templateUrl: 'login.html',
-                public: true
+          		templateUrl: 'login.html'
+          		
+          	   
           })
           .when('/register',{
-          		templateUrl: 'register.html',
-          		public: true
+          		templateUrl: 'register.html'
+          		
 
           		//templateUrl: 'login.html'
           		
           })
           .when('/account',{
-          		templateUrl: 'account.html',
+          		templateUrl: 'account.html'
           })
+          
+          //Default
           .otherwise({
           	redirectTo: '/'
           });
-
-			
+  
 			
 });
 
+app.controller('MainController', function($scope, $route, $routeParams, $location) {
+     $scope.$route = $route;
+     $scope.$location = $location;
+     $scope.$routeParams = $routeParams;
+ })
 
-window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1526991634270394',
-      xfbml      : true,
-      version    : 'v2.5',
-      status	 : true
-    });
-  };
-  
+ app.controller('chatController', function($scope, $routeParams) {
+     $scope.name = "chatController";
+     $scope.params = $routeParams;
+     
+ })
+
+
 
 app.controller('cfgController',function($scope){
 	
-
      $scope.FBLogin = function(){
       	FB.login(function(response) {
     	if (response.authResponse) {
@@ -74,16 +107,22 @@ app.controller('cfgController',function($scope){
        			$scope.response = response;
        		});
        		
-       		var accessToken = FB.getAuthResponse();
-       		console.log(accessToken);
+       		var access = FB.getAuthResponse();
+       		console.log(access);
+       		console.log(access.accessToken);
+       		console.log(access.expiresIn);
        		
-       		/*$scope.$storage = $localStorage.$default({
-       			x : accessToken
-       		});*/
+       		accessChat = 'ok';
+       		
      	});
      	
-    	} else {
+     	} else if(access.expiresIn != 0) {
+     		console.log("Gelukt!");
+     	}
+     	
+    	 else {
      		console.log('User cancelled login or did not fully authorize.');
+     		console.log(response.authResponse);
     	}
     	
 		}, {scope: 'email'});
@@ -103,30 +142,25 @@ app.controller('cfgController',function($scope){
   		} else if (response.status === 'not_authorized') {
     		// the user is logged in to Facebook, 
     		// but has not authenticated your app
+    		console.log('user isnt authorized')
   		} else {
     		// the user isn't logged in to Facebook.
+    		console.log('user isnt logged in');
   		}
  	}, true);
-    
-    	FB.logout(function(response) {
-    		var accessToken = FB.getAuthResponse();
-			console.log('User is logged out');
-  			// user is now logged out
-		});
     	
      };
      
-     
+     $scope.FBLogout = function(){
+     	FB.logout(function(response) {
+    		var accessLogout = FB.getAuthResponse();
+    		
+    		
+			console.log('User is logged out');
+  			// user is now logged out
+		});
+     };
 
 });
-
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1526991634270394";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
    
    

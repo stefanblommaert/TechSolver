@@ -6,9 +6,18 @@
 		<p>Account of {{response.name}}</p>
 	</div>
 	
-	<div data-role="main" id="listTable"></div>
+	
 	
 	<div>
+		<h2>Info of the user: </h2>
+		
+		<p>{{response.name}}</p>
+		<p>{{response.email}}</p>
+		
+	</div>
+	
+	<div>
+		<fb:login-button show-faces="true" max-rows="1" size="large"></fb:login-button>
 		<button ng-click="FBLogout()" type="button">Log out</button>
 	</div>
 
