@@ -97,7 +97,7 @@ app.controller('cfgController',function($scope){
 	
      $scope.FBLogin = function(){
       	FB.login(function(response) {
-    	if (response.authResponse) {
+    	 if (response.authResponse) {
      		console.log('Welcome!  Fetching your information.... ');
      		FB.api('/me', function(response) {
      			
@@ -116,16 +116,12 @@ app.controller('cfgController',function($scope){
        		
      	});
      	
-     	} else if(access.expiresIn != 0) {
-     		console.log("Gelukt!");
-     	}
-     	
-    	 else {
+     	} else {
      		console.log('User cancelled login or did not fully authorize.');
      		console.log(response.authResponse);
     	}
     	
-		}, {scope: 'email'});
+		}, {scope:'email'});
       
       FB.getLoginStatus(function(response) {
   		if (response.status === 'connected') {
