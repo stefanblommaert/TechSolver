@@ -1,24 +1,3 @@
-      //mapster gedeelte
-      (function (window, google, mapster) {
-
-          //map options
-          var options = mapster.MAP_OPTIONS,
-          element = document.getElementById('map-canvas'),
-          //map
-          map = new Mapster.create(element, options);
-          map._on('click', function(e){
-              alert('click');
-              console.log(e);
-              console.log(this);
-          });
-          alert(map.gMap.getZoom());
-      }(window, google, window.Mapster || (window.Mapster = {})));
-
-
-
-
-
-
       // chat gedeelte
       // variabele binden aan database
       var myDataRef = new Firebase('https://resplendent-inferno-9134.firebaseio.com/');
@@ -42,5 +21,23 @@
       function displayChatMessage(name, text) {
           $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).appendTo($('#messagesDiv'));
           $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-      }
+      }      
+
+
+    //mapster gedeelte
+      (function (window, google, mapster) {
+
+          //map options
+          var options = mapster.MAP_OPTIONS,
+          element = document.getElementById('map-canvas'),
+          //map
+          map = new Mapster.create(element, options);
+          map._on('click', function(e){
+              alert('click');
+              console.log(e);
+              console.log(this);
+          });
+          alert(map.gMap.getZoom());
+      }(window, google, window.Mapster || (window.Mapster = {})));
+
 
