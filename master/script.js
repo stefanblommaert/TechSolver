@@ -68,7 +68,8 @@ app.config(function($routeProvider){
           		
           })
           .when('/account',{
-          		templateUrl: 'account.html'
+          		templateUrl: 'account.html',
+              controller: 'MainController'
           })
           
           //Default
@@ -79,10 +80,40 @@ app.config(function($routeProvider){
 			
 });
 
-app.controller('MainController', function($scope, $route, $routeParams, $location) {
+app.controller('MainController', function($scope, $route, $routeParams, $location, $http) {
      $scope.$route = $route;
      $scope.$location = $location;
      $scope.$routeParams = $routeParams;
+
+     $scope.FBLogout = function(){
+      FB.logout(function(response) {
+        var accessLogout = FB.getAuthResponse();
+
+        if ($scope.error === false) {
+
+          $http.post('', {}).success(function() {
+            //$location.path("/");
+
+            window.location.replace("http://localhost/TechSolver.git/master/index.html#/");
+
+          }).error(function(data){
+            $location.path("/login");
+
+          });
+          
+          
+
+          console.log('User is logged out');
+        // user is now logged out
+
+        }else{
+          $location.path("/login");
+        }
+      
+        
+      
+    });
+     };
  })
 
  app.controller('chatController', function($scope, $routeParams) {
@@ -93,7 +124,7 @@ app.controller('MainController', function($scope, $route, $routeParams, $locatio
 
 
 
-app.controller('cfgController',function($scope){
+app.controller('cfgController',function($scope, $http, $location){
 	
      $scope.FBLogin = function(){
       	FB.login(function(response) {
@@ -113,6 +144,18 @@ app.controller('cfgController',function($scope){
        		console.log(access.expiresIn);
        		
        		accessChat = 'ok';
+
+          $scope.error = false;
+
+          $http.post('', {}).success(function() {
+            $location.path("/account");
+
+            //window.location.replace("http://localhost/TechSolver.git/master/index.html#/");
+
+          }).error(function(data){
+            $location.path("/login");
+
+          });
        		
      	});
      	
@@ -124,7 +167,7 @@ app.controller('cfgController',function($scope){
 		}, {scope:'email'});
       
       FB.getLoginStatus(function(response) {
-  		if (response.status === 'connected') {
+  		if (response && response.status === 'connected') {
     		// the user is logged in and has authenticated your
     		// app, and response.authResponse supplies
     		// the user's ID, a valid access token, a signed
@@ -135,27 +178,21 @@ app.controller('cfgController',function($scope){
     		var uid = response.authResponse.userID;
     		var accessToken = response.authResponse.accessToken;
     		
-  		} else if (response.status === 'not_authorized') {
+  		} else if (response && response.status === 'not_authorized') {
     		// the user is logged in to Facebook, 
     		// but has not authenticated your app
     		console.log('user isnt authorized')
   		} else {
     		// the user isn't logged in to Facebook.
     		console.log('user isnt logged in');
+
+        $scope.error = true;
   		}
  	}, true);
     	
      };
      
-     $scope.FBLogout = function(){
-     	FB.logout(function(response) {
-    		var accessLogout = FB.getAuthResponse();
-    		
-    		
-			console.log('User is logged out');
-  			// user is now logged out
-		});
-     };
+     
 
 });
    
