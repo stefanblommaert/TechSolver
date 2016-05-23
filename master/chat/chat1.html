@@ -1,48 +1,38 @@
-<!DOCTYPE html>
-<html>
+<div style="padding-left:130px;padding-right:200px;">
 
-<head>
+  <head>
     <!--api key:AIzaSyD_l_bXdlHXgBdiXNi0OfZY3RkcAaerEZU-->
     <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-</head>
-<body>
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="page-header">The Chat</h2>
-            <div id="map-canvas" style="height:40em;"></div>
-        </div>
+    
+    <div class="col-lg-12">
+      <h2 class="page-header">The Chat</h2>
     </div>
     <!-- Page Content -->
+    <div id ="map-canvas"></div>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_l_bXdlHXgBdiXNi0OfZY3RkcAaerEZU&callback=initMap"async defer></script> -->
     <script language="javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
-    <script src="Mapster.js"></script>
-    <script src="Mapster.js"></script>
-    <script src="map-options.js"></script>
     
+    <script src="Mapster.js"></script>
     <!--<script src="map-options.js"></script>-->
 
     <div class="container">
-        <div id="messagesDiv"></div>
-        <input type="text" id="nameInput" placeholder="Name" />
-        <input type="text" id="messageInput" placeholder="Message" />
+      <div id="messagesDiv"></div>
+      <input type="text" id="nameInput" placeholder="Name" />
+      <input type="text" id="messageInput" placeholder="Message" />
         <script src="chat-script.js"></script>
-        <hr />
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright © Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
+      <hr />
+      <!-- Footer -->
+      <footer>
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Copyright © Your Website 2014</p>
+          </div>
+        </div>
+      </footer>
     </div>
     <!-- /.container -->
     <!-- jQuery -->
     <script src="../js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
-    </body>
-
-</html>
+  </body>
