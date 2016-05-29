@@ -63,11 +63,13 @@ app.config(function($routeProvider){
           .when('/register',{
           		templateUrl: 'register.html'
           		
-
-          		//templateUrl: 'login.html'
-          		
           })
-          .when('/account',{
+		  
+		  .when('/stripe',{
+          		templateUrl: 'stripe.html'
+		  })	
+          
+		  .when('/account',{
           		templateUrl: 'account.html',
               controller: 'MainController'
           })
