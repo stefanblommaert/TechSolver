@@ -1,4 +1,4 @@
-<div style="padding-left:130px;padding-right:200px;">
+<!--<div style="padding-left:130px;padding-right:200px;">-->
 
 <head>
     <!--api key:AIzaSyD_l_bXdlHXgBdiXNi0OfZY3RkcAaerEZU-->
@@ -20,25 +20,44 @@
 
     <div class="container">
       <div id="messagesDiv"></div>
-      <input type="text" id="nameInput" placeholder="{{response.name}}" readonly="true" />
+      <input type="text" id="nameInput" placeholder="{{response.name}}" readonly="false" />
       <input type="text" id="messageInput" placeholder="Message" />
       <button ng-click="setmapmarker()" type="button">Locatie-delen</button>
-        <script src="chat.js"></script>
+        <script src="chat-script.js"></script>
       <hr />
 
 
-        <form method="post" action="https://console.firebase.google.com/project/resplendent-inferno-9134/storage/files/test">
-            <input type="file" name="chooseFile" value="Choose file">
+        <form method="post" action="https://firebasestorage.googleapis.com/v0/b/resplendent-inferno-9134.appspot.com/o/test%2Ftest.json">
+            <input type="file" name="chooseFile" id="fileChosen" value="Choose file">
             <input type="submit" name="uploadFile" value="POST">
         </form>
 
-        <a href="https://console.firebase.google.com/project/resplendent-inferno-9134/storage/files/test/about.json" download="test">GET</a>
 
-        <input type="submit" name="deleteFile" id="deleteFile" checked="false" value="DELETE">
+        <a href="https://firebasestorage.googleapis.com/v0/b/resplendent-inferno-9134.appspot.com/o/test%2Fabout.json?alt=media&token=746af4af-91ce-4403-9dac-a2ab53e19732" download="test">GET</a>
+
+
+        <button onclick="fileDeleting = true" >DEL</button>
+
 
         <script>
+
+        function uploadFile(){
+        var data = {"name": "John", "date": "2pm"};
+        jQuery.ajax({
+            accept: "application/json",
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            url: "https://resplendent-inferno-9134.firebaseio.com/test/test.json",
+            data: JSON.stringify(data),
+        });
+        }
+
+        
             
-        if (deleteFile.checked) {
+        if (fileDeleting === true) {
+
+            console.log("gelukt");
             // Create a reference to the file to delete
             var desertRef = storageRef.child('files/test/404.html');
 

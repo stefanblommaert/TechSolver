@@ -47,7 +47,7 @@ app.config(function($routeProvider){
           .when('/chat',{
           	
           		templateUrl: 'chat.html',
-          		controller: 'chatController',
+          		controller: 'chatController'
           		//resolve: {
       				//accessChat: ['$q', function($q) {
         			//return accessChat ? accessChat : $q.reject('ok');
@@ -119,6 +119,8 @@ app.controller('MainController', function($scope, $route, $routeParams, $locatio
  app.controller('chatController', function($scope, $routeParams) {
      $scope.name = "chatController";
      $scope.params = $routeParams;
+
+     $scope.fileDeleting = false;
      
  })
 
@@ -196,6 +198,5 @@ app.controller('cfgController',function($scope, $http, $location){
 
 });
 
-
-   
+      
    
