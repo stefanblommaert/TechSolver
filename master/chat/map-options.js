@@ -2,8 +2,8 @@
   
   mapster.MAP_OPTIONS = {
     center: {
-      lat: 37.791350,
-      lng: -122.435883
+      lat: 51.224813,
+      lng: 4.420082
     },
     zoom: 10,
     disableDefaultUI: false,

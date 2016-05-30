@@ -16,7 +16,7 @@
       find: function(callback, action) {
         var callbackReturn,
             items = this.items,
-            length = items.length
+            length = items.length,
             matches = [],
             i = 0;
         

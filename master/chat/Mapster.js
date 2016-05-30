@@ -4,6 +4,7 @@
     function Mapster(element, opts) {
       this.gMap = new google.maps.Map(element, opts);
       this.markers = List.create();
+      this.markerClusterer = new MarkerClusterer(this.gmap, []);
     }
     Mapster.prototype = {
       zoom: function(level) {
@@ -26,6 +27,7 @@
           lng: opts.lng
         }
         marker = this._createMarker(opts);
+        this.markerClusterer.addMarker(marker);
         this._addMarker(marker);
         if (opts.event) {
           this._on({

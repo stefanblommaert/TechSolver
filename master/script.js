@@ -46,13 +46,13 @@ app.config(function($routeProvider){
           })
           .when('/chat',{
           	
-          		templateUrl: 'chat.html',
-          		controller: 'chatController'
-          		//resolve: {
-      				//accessChat: ['$q', function($q) {
-        			//return accessChat ? accessChat : $q.reject('ok');
-      				//}]
-    			//}
+          		templateUrl: 'chat/index.html',
+          		controller: 'chatController',
+          		resolve: {
+      				accessChat: ['$q', function($q) {
+        			return accessChat ? accessChat : $q.reject('ok');
+      				}]
+    			}
                 
           })
           .when('/login',{
