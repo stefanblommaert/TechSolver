@@ -1,57 +1,43 @@
-<div style="padding-left:130px;padding-right:200px;">
+<!--<div style="padding-left:130px;padding-right:200px;">-->
 
 <head>
     <!--api key:AIzaSyD_l_bXdlHXgBdiXNi0OfZY3RkcAaerEZU-->
     <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-</head>
-<body>
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="page-header">The Chat</h2>
-            <div id="map-canvas" style="height:40em;"></div>
-        </div>
+      <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <div class="col-lg-12">
+      <h2 class="page-header">The Chat</h2>
     </div>
+    </head>
+    <body>
     <!-- Page Content -->
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_l_bXdlHXgBdiXNi0OfZY3RkcAaerEZU&callback=initMap"async defer></script> -->
+      
+    <div class="container" id ="map-canvas" style="min-height: 594px;"></div>
+      
     <script language="javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
-    <script src="Mapster.js"></script>
-    <script src="map-options.js"></script>
-    
+    <script src="Mapsters.js"></script>
+      <script src="mapOptions.js"></script>
 
     <div class="container">
-        <div id="messagesDiv"></div>
-        <input type="text" id="nameInput" value={{response.name}} readonly="true" />
-        <input type="text" id="messageInput" placeholder="Message" />
+      <div id="messagesDiv"></div>
+      <input type="text" id="nameInput" placeholder="{{response.name}}" readonly="false" />
+      <input type="text" id="messageInput" placeholder="Message" />
+      <button ng-click="setmapmarker()" type="button">Locatie-delen</button>
         <script src="chat-script.js"></script>
-        <hr />
+      <hr />
 
 
-        <form method="post" action="https://console.firebase.google.com/project/resplendent-inferno-9134/storage/files/test">
-            <input type="file" name="chooseFile" value="Choose file">
+        <form method="post" enctype="multipart/form-data" action="https://firebasestorage.googleapis.com/v0/b/resplendent-inferno-9134.appspot.com/o/test%2Ftest.json">
+            <input type="file" name="chooseFile" id="fileChosen" value="Choose file">
             <input type="submit" name="uploadFile" value="POST">
         </form>
 
-        <a href="https://console.firebase.google.com/project/resplendent-inferno-9134/storage/files/test/about.json" download="test">GET</a>
 
-        <input type="submit" name="deleteFile" id="deleteFile" checked="false" value="DELETE">
+        <a href="https://firebasestorage.googleapis.com/v0/b/resplendent-inferno-9134.appspot.com/o/test%2Fabout.json?alt=media&token=746af4af-91ce-4403-9dac-a2ab53e19732" download="test">GET</a>
 
-        <script>
-            
-        if (deleteFile.checked) {
-            // Create a reference to the file to delete
-            var desertRef = storageRef.child('files/test/404.html');
 
-            // Delete the file
-            desertRef.delete().then(function() {
-                // File deleted successfully
-            }).catch(function(error) {
-                // Uh-oh, an error occurred!
-            });
-        }
-        
-        </script>
+
+        <button ng-click="delFile()" type="button">DEL (test.json)</button>
 
 
         <!-- Footer -->
