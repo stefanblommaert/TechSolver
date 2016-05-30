@@ -2,6 +2,9 @@ Git Repo https://github.com/stefanblommaert/TechSolver.git
 
 Instructies webapplicatie techsolver:
 
+De chatfunctie hebben we niet kunnen integreren in de webapplicatie.
+Dus als je de chatpagina wilt zien moet je onder de master file naar de chat file gaan en de index.html runnen (ook via localhost).
+
 ZIP-bestand: 
 
 Ik heb de webapplicatie via localhost gerunt (alle files in htdocs)
