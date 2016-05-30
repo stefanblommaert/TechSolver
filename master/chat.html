@@ -36,40 +36,8 @@
         <a href="https://firebasestorage.googleapis.com/v0/b/resplendent-inferno-9134.appspot.com/o/test%2Fabout.json?alt=media&token=746af4af-91ce-4403-9dac-a2ab53e19732" download="test">GET</a>
 
 
-        <button onclick="fileDeleting = true" >DEL</button>
 
-
-        <script>
-
-        function uploadFile(){
-        var data = {"name": "John", "date": "2pm"};
-        jQuery.ajax({
-            accept: "application/json",
-            type: 'POST',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            url: "https://resplendent-inferno-9134.firebaseio.com/test/test.json",
-            data: JSON.stringify(data),
-        });
-        }
-
-        
-            
-        if (fileDeleting === true) {
-
-            console.log("gelukt");
-            // Create a reference to the file to delete
-            var desertRef = storageRef.child('files/test/404.html');
-
-            // Delete the file
-            desertRef.delete().then(function() {
-                // File deleted successfully
-            }).catch(function(error) {
-                // Uh-oh, an error occurred!
-            });
-        }
-        
-        </script>
+        <button ng-click="delFile()" type="button">DEL (test.json)</button>
 
 
         <!-- Footer -->

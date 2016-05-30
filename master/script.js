@@ -122,7 +122,16 @@ app.controller('MainController', function($scope, $route, $routeParams, $locatio
      $scope.name = "chatController";
      $scope.params = $routeParams;
 
-     $scope.fileDeleting = false;
+     var file = "test.json";
+
+     $scope.delFile = function(){
+        console.log("We're in.");
+
+        var delRef = "https://firebasestorage.googleapis.com/v0/b/resplendent-inferno-9134.appspot.com/o/test%2Ftest.json"
+
+        delRef.remove();
+        
+     }
      
  })
 
