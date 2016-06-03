@@ -46,7 +46,7 @@ app.config(function($routeProvider){
           })
           .when('/chat',{
           	
-          		templateUrl: 'chat/index.html',
+          		templateUrl: 'chat.html',
           		controller: 'chatController',
           		resolve: {
       				accessChat: ['$q', function($q) {
